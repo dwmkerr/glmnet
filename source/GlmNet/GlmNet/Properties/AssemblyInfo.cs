@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("TestHarness")]
+[assembly: AssemblyTitle("GlmNet")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("TestHarness")]
+[assembly: AssemblyProduct("GlmNet")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("a14002d7-40ef-4d24-90c8-d2a5bdd4dc4f")]
+[assembly: Guid("4d6cdf78-36f5-40ee-bcc2-4e79e34b24be")]
 
 // Version information for an assembly consists of the following four values:
 //
