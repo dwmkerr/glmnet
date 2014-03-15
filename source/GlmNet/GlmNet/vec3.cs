@@ -1,7 +1,10 @@
 using System;
 
-namespace GlmNet 
+namespace GlmNet
 {
+    /// <summary>
+    /// Represents a three dimensional vector.
+    /// </summary>
 	public struct vec3
 	{
 		public float x;
@@ -43,9 +46,23 @@ namespace GlmNet
 			return new vec3(lhs.x + rhs.x, lhs.y + rhs.y, lhs.z + rhs.z);
 		}
 
+        public static vec3 operator -(vec3 lhs, vec3 rhs)
+        {
+            return new vec3(lhs.x - rhs.x, lhs.y - rhs.y, lhs.z - rhs.z);
+        }
+
         public static vec3 operator *(vec3 self, float s)
 		{
 			return new vec3(self.x * s, self.y * s, self.z * s);
 		}
+        public static vec3 operator *(float lhs, vec3 rhs)
+        {
+            return new vec3(rhs.x * lhs, rhs.y * lhs, rhs.z * lhs);
+        }
+
+        public float[] to_array()
+        {
+            return new[] { x, y, z };
+        }
 	}
 }

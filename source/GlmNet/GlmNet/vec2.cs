@@ -2,6 +2,9 @@ using System;
 
 namespace GlmNet 
 {
+    /// <summary>
+    /// Represents a two dimensional vector.
+    /// </summary>
 	public struct vec2
 	{
 		public float x;
@@ -39,9 +42,23 @@ namespace GlmNet
 			return new vec2(lhs.x + rhs.x, lhs.y + rhs.y);
 		}
 
+        public static vec2 operator -(vec2 lhs, vec2 rhs)
+        {
+            return new vec2(lhs.x - rhs.x, lhs.y - rhs.y);
+        }
+
         public static vec2 operator *(vec2 self, float s)
 		{
 			return new vec2(self.x * s, self.y * s);
 		}
+        public static vec2 operator *(float lhs, vec2 rhs)
+        {
+            return new vec2(rhs.x * lhs, rhs.y * lhs);
+        }
+
+        public float[] to_array()
+        {
+            return new[] { x, y };
+        }
 	}
 }

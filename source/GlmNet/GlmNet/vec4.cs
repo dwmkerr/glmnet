@@ -1,7 +1,10 @@
 using System;
 
-namespace GlmNet 
+namespace GlmNet
 {
+    /// <summary>
+    /// Represents a four dimensional vector.
+    /// </summary>
     public struct vec4
     {
         public float x;
@@ -42,14 +45,28 @@ namespace GlmNet
             this.w = w;
         }
 
-        public static vec4 operator +(vec4 lhs, vec4 rhs)
+        public static vec4 operator + (vec4 lhs, vec4 rhs)
         {
             return new vec4(lhs.x + rhs.x, lhs.y + rhs.y, lhs.z + rhs.z, lhs.w + rhs.w);
         }
 
-        public static vec4 operator *(vec4 self, float s)
+        public static vec4 operator - (vec4 lhs, vec4 rhs)
+        {
+            return new vec4(lhs.x - rhs.x, lhs.y - rhs.y, lhs.z - rhs.z, lhs.w - rhs.w);
+        }
+
+        public static vec4 operator * (vec4 self, float s)
         {
             return new vec4(self.x * s, self.y * s, self.z * s, self.w * s);
+        }
+        public static vec4 operator *(float lhs, vec4 rhs)
+        {
+            return new vec4(rhs.x * lhs, rhs.y * lhs, rhs.z * lhs, rhs.w * lhs);
+        }
+
+        public float[] to_array()
+        {
+            return new[] { x, y, z, w };
         }
     }
 }
