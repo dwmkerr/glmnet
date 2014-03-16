@@ -19,11 +19,9 @@ namespace GlmNet
         /// <returns>A <see cref="mat4"/> that contains the projection matrix for the perspective transformation.</returns>
 		public static mat4 perspective(float fovy, float aspect, float zNear, float zFar)
 		{
-			float tanHalfFovy = (float)Math.Tan(fovy / 2.0f);
+			var tanHalfFovy = (float)Math.Tan(fovy / 2.0f);
 
-			mat4 result = mat4.identity();
-            var a = result[0];
-            var b = a[0];
+            var result = mat4.identity();
 			result[0,0] = 1.0f / (aspect * tanHalfFovy);
 			result[1,1] = 1.0f / (tanHalfFovy);
 			result[2,2] = - (zFar + zNear) / (zFar - zNear);
@@ -32,25 +30,28 @@ namespace GlmNet
 			return result;
 		}
 
-        public static mat4 pfrustum(
-		float left,
-		float right,
-		float bottom,
-		float top,
-		float nearVal,
-		float farVal
-	)
-	{
-        mat4 result = mat4.identity();
-		result[0,0] = (2.0f * nearVal) / (right - left);
-        result[1, 1] = (2.0f * nearVal) / (top - bottom);
-		result[2,0] = (right + left) / (right - left);
-		result[2,1] = (top + bottom) / (top - bottom);
-		result[2,2] = -(farVal + nearVal) / (farVal - nearVal);
-		result[2,3] = -1.0f;
-        result[3, 2] = -(2.0f * farVal * nearVal) / (farVal - nearVal);
-		return result;
-	}
+        /// <summary>
+        /// Creates a frustrum projection matrix.
+        /// </summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <param name="bottom">The bottom.</param>
+        /// <param name="top">The top.</param>
+        /// <param name="nearVal">The near val.</param>
+        /// <param name="farVal">The far val.</param>
+        /// <returns></returns>
+        public static mat4 frustum(float left, float right, float bottom, float top, float nearVal, float farVal)
+        {
+            var result = mat4.identity();
+            result[0, 0] = (2.0f*nearVal)/(right - left);
+            result[1, 1] = (2.0f*nearVal)/(top - bottom);
+            result[2, 0] = (right + left)/(right - left);
+            result[2, 1] = (top + bottom)/(top - bottom);
+            result[2, 2] = -(farVal + nearVal)/(farVal - nearVal);
+            result[2, 3] = -1.0f;
+            result[3, 2] = -(2.0f*farVal*nearVal)/(farVal - nearVal);
+            return result;
+        }
 
         /// <summary>
         /// Applies a translation transformation to matrix <paramref name="m"/> by vector <paramref name="v"/>.

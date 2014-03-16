@@ -22,3 +22,8 @@ _ReSharper*/
 *.sdf
 *.opensdf
 source/GlmNet/ipch
+source/GlmNet/packages/
+!release/
+release/0.*
+source/GlmNet/Reference/Release
+source/GlmNet/Release
