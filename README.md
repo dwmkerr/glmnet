@@ -21,13 +21,16 @@ All types are based on floats.
 Matrice elements are references as multidimensional arrays when you want to change them, e.g:
 
 ````
-result[0,0] = 1.0f / (aspect * tanHalfFovy);
-			result[1,1] = 1.0f / (tanHalfFovy);
-			result[2,2] = - (zFar + zNear) / (zFar - zNear);
-			result[2,3] = - 1.0f;
-			result[3,2] = - (2.0f * zFar * zNear) / (zFar - zNear);
+// Get data from matrices like this:
+var element = matrix[1][2];
+// ..or this..
+var element = matrix[1,2];
+
+// But SET data in a matrix like this:
+matrix[1,2] = element;
 ````
-All angles are in radians
+
+All angles in GlmNet are expected to be in radians - no conversion to or from degrees is ever done.
 
 
 Structure
@@ -39,5 +42,7 @@ source - The sourcecode for GLMNET.
 Supported Functionality
 -----------------------
 
- * Vectors: vec2, vec3, vec4
- * Matrices: mat2, mat3, mat4
+ * Vectors: ``vec2``, ``vec3``, ``vec4``
+ * Matrices: ``mat2``, ``mat3``, ``mat4``
+ * Transformations: ``scale``, ``rotate``, ``translate``
+ * Projections: ``perspective``, ``frustum``
