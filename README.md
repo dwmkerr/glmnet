@@ -13,6 +13,17 @@ PM> Install-Package GlmNet
 
 That's all there is to it!
 
+Usage
+-----
+
+GlmNet attempts to be as syntactically similar to GLM as possible. Examples are:
+
+````csharp
+mat4 projectionMatrix = glm.perspective(rads, (float)Width / (float)Height, 0.1f, 100.0f);
+mat4 viewMatrix = glm.translate(new mat4(1.0f), new vec3(0.0f, 0.0f, -5.0f));
+mat4 modelMatrix = glm.scale(new mat4(1.0f), new vec3(0.5f));
+````
+
 Fundamentals
 ------------
 
