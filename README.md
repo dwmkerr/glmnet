@@ -1,9 +1,11 @@
 GlmNet
 ======
 
-GLMNET is a .NET version of the excellent [OpenGL Mathematics library (GLM)](http://glm.g-truc.net/).
+GlmNet is a .NET version of the excellent [OpenGL Mathematics library (GLM)](http://glm.g-truc.net/).
 
 The [OpenGL Mathematics Library](http://glm.g-truc.net/) is open source, licensed under the MIT license. I would like to thank [Christophe Riccio](http://www.g-truc.net/) for his permission to wrap the library.
+
+Important: I am developing GlmNet as I need it - so there are very few advanced features from GLM ported over yet. Please do feel free to fork the code and add the features as you need them - if you create pull requests I'll merge them into the main branch.
 
 Install it with Nuget:
 
