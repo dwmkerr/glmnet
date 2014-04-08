@@ -31,7 +31,7 @@ Fundamentals
 
 Matrices are NOT initialised to the identity. Use the ````identity```` function.
 All types are based on floats.
-Matrice elements are references as multidimensional arrays when you want to change them, e.g:
+Matrix elements are references as multidimensional arrays when you want to change them, e.g:
 
 ````
 // Get data from matrices like this:
