@@ -35,45 +35,46 @@ Fundamentals
 
 GLM.NET matrices are **Column Major**. This is because GLM attempts to mimic GLSL as closely as possible.
 
-| a b c |
-| d e f | = |M|
-| g h i |
+    | a b c |
+    | d e f | = |M|
+    | g h i |
 
 This means:
 
 M[0] gives column 0, i.e:
 
-| a |
-| d |
-| g |
+    | a |
+    | d |
+    | g |
 
 M[1][2] or M[1,2] gives column 1, row 2, i.e:
 
-|h|
+    |h|
 
 Column major matrices are used in OpenGL, row major in DirectX. Many C++ libraries are row major,
 be aware that GLM.NET is column major. This means that as OpenGL vectors are typically columns, 
 you multiply in the order matrix * vector:
 
-a = m * v
+    a = m * v
 
-Rather than v * m.
+Rather than `v * m`.
 
 ### Matrix Initialisation
 
-Matrices are NOT initialised to the identity. Use the ````identity```` function.
+Matrices are NOT initialised to the identity. Use the `identity` function.
 All types are based on floats.
 Matrix elements are references as multidimensional arrays when you want to change them, e.g:
 
-````
+```cs
 // Get data from matrices like this:
 var element = matrix[1][2];
+
 // ..or this..
 var element = matrix[1,2];
 
 // But SET data in a matrix like this:
 matrix[1,2] = element;
-````
+```
 
 All angles in GlmNet are expected to be in radians - no conversion to or from degrees is ever done.
 
@@ -91,3 +92,5 @@ Supported Functionality
  * Matrices: ``mat2``, ``mat3``, ``mat4``
  * Transformations: ``scale``, ``rotate``, ``translate``
  * Projections: ``perspective``, ``frustum``
+ * Matrix * Matrix
+ * Matrix * Vector
