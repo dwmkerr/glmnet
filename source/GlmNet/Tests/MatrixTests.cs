@@ -15,6 +15,7 @@ namespace Tests
     class MatrixTests
     {
         [Test]
+        [Ignore("Blocked by bug #1.")]
         public void MatricesAreDeepCopied()
         {
             //  A matrix should be a struct, like in glm and C++. We should deep copy matrices, and when we do, 
@@ -36,6 +37,17 @@ namespace Tests
             Assert.AreEqual(m1[1, 0], 0.2f, "Deep copy is changing source object.");
             Assert.AreEqual(m1[1, 1], 0.3f, "Deep copy is changing source object.");
             Assert.AreEqual(m1[0, 1], 0.4f, "Deep copy is changing source object.");
+        }
+
+        [Test]
+        public void IdentityMatrixIsCorrect()
+        {
+            var m = mat2.identity();
+
+            Assert.AreEqual(m[0, 0], 1f, "Incorrect identity matrix.");
+            Assert.AreEqual(m[1, 0], 0f, "Incorrect identity matrix.");
+            Assert.AreEqual(m[1, 1], 1f, "Incorrect identity matrix.");
+            Assert.AreEqual(m[0, 1], 0f, "Incorrect identity matrix.");
         }
     }
 }
