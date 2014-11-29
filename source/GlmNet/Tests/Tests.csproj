@@ -44,6 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="mat4Tests.cs" />
+    <Compile Include="mat3Tests.cs" />
+    <Compile Include="mat2Tests.cs" />
     <Compile Include="MatrixTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

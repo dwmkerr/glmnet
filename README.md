@@ -31,6 +31,36 @@ mat4 modelMatrix = glm.scale(new mat4(1.0f), new vec3(0.5f));
 Fundamentals
 ------------
 
+### Column Major Matrices
+
+GLM.NET matrices are **Column Major**. This is because GLM attempts to mimic GLSL as closely as possible.
+
+| a b c |
+| d e f | = |M|
+| g h i |
+
+This means:
+
+M[0] gives column 0, i.e:
+
+| a |
+| d |
+| g |
+
+M[1][2] or M[1,2] gives column 1, row 2, i.e:
+
+|h|
+
+Column major matrices are used in OpenGL, row major in DirectX. Many C++ libraries are row major,
+be aware that GLM.NET is column major. This means that as OpenGL vectors are typically columns, 
+you multiply in the order matrix * vector:
+
+a = m * v
+
+Rather than v * m.
+
+### Matrix Initialisation
+
 Matrices are NOT initialised to the identity. Use the ````identity```` function.
 All types are based on floats.
 Matrix elements are references as multidimensional arrays when you want to change them, e.g:

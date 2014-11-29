@@ -107,6 +107,20 @@ namespace GlmNet
         #region Multiplication
 
         /// <summary>
+        /// Multiplies the <paramref name="lhs"/> matrix by the <paramref name="rhs"/> vector.
+        /// </summary>
+        /// <param name="lhs">The LHS matrix.</param>
+        /// <param name="rhs">The RHS vector.</param>
+        /// <returns>The product of <paramref name="lhs"/> and <paramref name="rhs"/>.</returns>
+        public static vec2 operator *(mat2 lhs, vec2 rhs)
+        {
+            return new vec2(
+                lhs[0,0] * rhs[0] + lhs[1,0] * rhs[1], 
+                lhs[0,1] * rhs[0] + lhs[1,1] * rhs[1]
+            );
+        }
+
+        /// <summary>
         /// Multiplies the <paramref name="lhs"/> matrix by the <paramref name="rhs"/> matrix.
         /// </summary>
         /// <param name="lhs">The LHS matrix.</param>
