@@ -40,6 +40,11 @@ $nuget = Join-Path $scriptParentPath "Resources\nuget.exe"
 
 CopyItems (Join-Path $folderReleaseCore "*.*") (Join-Path $folderNuspecRoot "GlmNet\lib\net40")
 . $nuget pack (Join-Path $folderNuspecRoot "GlmNet\GlmNet.nuspec") -Version $releaseVersion -OutputDirectory $folderReleasePackage
+$packagePath = (Join-Path $folderReleasePackage "GlmNet.$releaseVersion.nupkg")
 
 # We're done!
 Write-Host "Successfully built version: $releaseVersion"
+Write-Host "Package built to: $packagePath"
+
+# If the user wants, we can also publish.
+. $nuget push $packagePath
