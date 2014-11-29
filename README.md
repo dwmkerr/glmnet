@@ -1,7 +1,7 @@
 GlmNet
 ======
 
-![https://travis-ci.org/dwmkerr/glmnet.svg?branch=master](Build Status)
+[![Build Status](https://travis-ci.org/dwmkerr/glmnet.svg?branch=master)](https://travis-ci.org/dwmkerr/glmnet)
 
 GlmNet is a .NET version of the excellent [OpenGL Mathematics library (GLM)](http://glm.g-truc.net/).
 
