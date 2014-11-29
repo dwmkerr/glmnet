@@ -1,0 +1,8 @@
+language: c
+ 
+install:
+  - sudo apt-get install mono-devel mono-gmcs nunit-console
+
+script:
+  - xbuild source/GlmNet/GlmNet.proj
+  - nunit-console ./source/GlmNet/Tests/bin/Debug/Tests.dll
