@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<Project ToolsVersion="4.0" DefaultTargets="GlmNet" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+ 
+  <Target Name="GlmNet" DependsOnTargets="Build" />
+ 
+  <Target Name="Build">
+    <MSBuild Projects="GlmNet.sln" Properties="Configuration=Debug;Platform=Any CPU" />
+  </Target>
+ 
+</Project>
