@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using GlmNet;
 using NUnit.Framework;
+using NUnit.Framework.Constraints;
 
 namespace Tests
 {
@@ -12,7 +13,7 @@ namespace Tests
     /// </summary>
     [TestFixture]
     [Category("Matrices")]
-    class MatrixTests
+    class matrixTests
     {
         [Test]
         [Ignore("Blocked by bug #1.")]
@@ -48,6 +49,27 @@ namespace Tests
             Assert.AreEqual(m[1, 0], 0f, "Incorrect identity matrix.");
             Assert.AreEqual(m[1, 1], 1f, "Incorrect identity matrix.");
             Assert.AreEqual(m[0, 1], 0f, "Incorrect identity matrix.");
+        }
+
+        [Test]
+        public void CanCreateCrossProduct()
+        {
+            var v1 = new vec3(1f, 4f, -2f);
+            var v2 = new vec3(-4f, 0.5f, -3f);
+            Assert.AreEqual(
+                glm.cross(v1, v2),
+                new vec3(-11f, 11f, 16.5f)
+                );
+        }
+
+        [Test]
+        public void CanNormalise()
+        {
+            var v1 = new vec3(2f, -3f, 5f);
+            AssertExtensions.AreVectorsEqual(
+                glm.normalize(v1),
+                new vec3(0.324443f, -0.486664f, 0.811107f),
+                0.00001f);
         }
     }
 }
