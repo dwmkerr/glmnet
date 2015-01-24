@@ -42,6 +42,14 @@ namespace GlmNet
             };
         }
 
+        public mat4(vec4 a, vec4 b, vec4 c, vec4 d)
+        {
+            this.cols = new[]
+            {
+                a, b, c, d
+            };
+        }
+
         /// <summary>
         /// Creates an identity matrix.
         /// </summary>
@@ -154,6 +162,17 @@ namespace GlmNet
 			    lhs[0][1] * rhs[0] + lhs[1][1] * rhs[1] + lhs[2][1] * rhs[2] + lhs[3][1] * rhs[3],
 			    lhs[0][2] * rhs[0] + lhs[1][2] * rhs[1] + lhs[2][2] * rhs[2] + lhs[3][2] * rhs[3],
 			    lhs[0][3] * rhs[0] + lhs[1][3] * rhs[1] + lhs[2][3] * rhs[2] + lhs[3][3] * rhs[3]
+            });
+        }
+
+        public static mat4 operator *(mat4 lhs, float s)
+        {
+            return new mat4(new[]
+            {
+                lhs[0]*s,
+                lhs[1]*s,
+                lhs[2]*s,
+                lhs[3]*s
             });
         }
 

@@ -40,6 +40,14 @@ namespace GlmNet
             };
         }
 
+        public mat3(vec3 a, vec3 b, vec3 c)
+        {
+            this.cols = new[]
+            {
+                a, b, c
+            };
+        }
+
         /// <summary>
         /// Creates an identity matrix.
         /// </summary>
@@ -148,6 +156,16 @@ namespace GlmNet
 			    lhs[0][0] * rhs[0] + lhs[1][0] * rhs[1] + lhs[2][0] * rhs[2],
 			    lhs[0][1] * rhs[0] + lhs[1][1] * rhs[1] + lhs[2][1] * rhs[2],
 			    lhs[0][2] * rhs[0] + lhs[1][2] * rhs[1] + lhs[2][2] * rhs[2]
+            });
+        }
+
+        public static mat3 operator * (mat3 lhs, float s)
+        {
+            return new mat3(new[]
+            {
+                lhs[0]*s,
+                lhs[1]*s,
+                lhs[2]*s
             });
         }
 

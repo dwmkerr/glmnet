@@ -45,9 +45,30 @@ namespace GlmNet
             this.w = w;
         }
 
+        public vec4(vec4 v)
+        {
+            this.x = v.x;
+            this.y = v.y;
+            this.z = v.z;
+            this.w = v.w;
+        }
+
+        public vec4(vec3 xyz, float w)
+        {
+            this.x = xyz.x;
+            this.y = xyz.y;
+            this.z = xyz.z;
+            this.w = w;
+        }
+
         public static vec4 operator + (vec4 lhs, vec4 rhs)
         {
             return new vec4(lhs.x + rhs.x, lhs.y + rhs.y, lhs.z + rhs.z, lhs.w + rhs.w);
+        }
+
+        public static vec4 operator -(vec4 lhs, float rhs)
+        {
+            return new vec4(lhs.x - rhs, lhs.y - rhs, lhs.z - rhs, lhs.w - rhs);
         }
 
         public static vec4 operator - (vec4 lhs, vec4 rhs)
@@ -59,9 +80,20 @@ namespace GlmNet
         {
             return new vec4(self.x * s, self.y * s, self.z * s, self.w * s);
         }
-        public static vec4 operator *(float lhs, vec4 rhs)
+
+        public static vec4 operator * (float lhs, vec4 rhs)
         {
             return new vec4(rhs.x * lhs, rhs.y * lhs, rhs.z * lhs, rhs.w * lhs);
+        }
+
+        public static vec4 operator * (vec4 lhs, vec4 rhs)
+        {
+            return new vec4(rhs.x * lhs.x, rhs.y * lhs.y, rhs.z * lhs.z, rhs.w * lhs.w);
+        }
+
+        public static vec4 operator / (vec4 lhs, float rhs)
+        {
+            return new vec4(lhs.x/rhs, lhs.y/rhs, lhs.z/rhs, lhs.w/rhs);
         }
 
         public float[] to_array()

@@ -85,6 +85,73 @@ Structure
 glm - A copy of the latest version of the OpenGL Mathematics library.
 source - The sourcecode for GLMNET.
 
+## API
+---
+
+### GLM Core
+
+#### Angle and Trigonometry Functions
+
+ * acos
+ * acosh
+ * asin
+ * asinh
+ * atan
+ * atanh
+ * cos
+ * cosh
+ * degrees
+ * radians
+ * sin
+ * sinh
+ * tan
+ * tanh
+
+#### Geometric Functions
+
+* dot
+* cross
+* normalize
+
+Not Implemented
+
+* distance
+* faceforward
+* length
+* reflect
+* refract 
+
+#### Matrix Functions
+
+ * inverse
+
+Not implemented 
+
+ * determinant
+ * matrixCompMult
+ * outerProduct
+ * transpose_type
+
+### GTC Extensions (Stable)
+
+#### GLM_GTC_matrix_transform
+
+All functions are supported. Angles are always in radians.
+
+ * frustum
+ * infinitePerspective
+ * lookAt
+ * ortho
+ * perspective
+ * perspectiveFov
+ * pickMatrix
+ * project
+ * rotate
+ * scale
+ * translate
+ * tweakedInfinitePerspective
+ * unProject
+
 Supported Functionality
 -----------------------
 

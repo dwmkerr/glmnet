@@ -38,6 +38,22 @@ namespace GlmNet
             };
         }
 
+        public mat2(vec2 a, vec2 b)
+        {
+            this.cols = new[]
+            {
+                a, b
+            };
+        }
+
+        public mat2(float a, float b, float c, float d)
+        {
+            this.cols = new[]
+            {
+                new vec2(a,b), new vec2(c,d)
+            };
+        }
+
         /// <summary>
         /// Creates an identity matrix.
         /// </summary>
@@ -132,6 +148,15 @@ namespace GlmNet
             {
 			    lhs[0][0] * rhs[0] + lhs[1][0] * rhs[1],
 			    lhs[0][1] * rhs[0] + lhs[1][1] * rhs[1]
+            });
+        }
+
+        public static mat2 operator * (mat2 lhs, float s)
+        {
+            return new mat2(new[]
+            {
+                lhs[0]*s,
+                lhs[1]*s
             });
         }
 
