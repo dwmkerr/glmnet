@@ -16,6 +16,14 @@ namespace Tests
     class matrix_transformTests
     {
         [Test]
+        public void CanCreatePerspectiveTransformation()
+        {
+            var fieldOfView = glm.radians(60f);
+            var aspectRatio = 600f/800f;
+            var perspective = glm.perspective(fieldOfView, aspectRatio, 1, 100);
+        }
+
+        [Test]
         public void CanCreateLookAtProjection()
         {
             var eye = new vec3(4f, 4f, 4f);
