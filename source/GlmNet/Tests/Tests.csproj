@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssertExtensions.cs" />
+    <Compile Include="matrix_transformTests.cs" />
     <Compile Include="mat4Tests.cs" />
     <Compile Include="mat3Tests.cs" />
     <Compile Include="mat2Tests.cs" />
