@@ -54,6 +54,11 @@ namespace GlmNet
 			return new vec2(lhs.x + rhs.x, lhs.y + rhs.y);
 		}
 
+        public static vec2 operator +(vec2 lhs, float rhs)
+        {
+            return new vec2(lhs.x + rhs, lhs.y + rhs);
+        }
+
         public static vec2 operator -(vec2 lhs, vec2 rhs)
         {
             return new vec2(lhs.x - rhs.x, lhs.y - rhs.y);

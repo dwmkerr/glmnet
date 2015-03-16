@@ -66,6 +66,11 @@ namespace GlmNet
             return new vec4(lhs.x + rhs.x, lhs.y + rhs.y, lhs.z + rhs.z, lhs.w + rhs.w);
         }
 
+        public static vec4 operator +(vec4 lhs, float rhs)
+        {
+            return new vec4(lhs.x + rhs, lhs.y + rhs, lhs.z + rhs, lhs.w + rhs);
+        }
+
         public static vec4 operator -(vec4 lhs, float rhs)
         {
             return new vec4(lhs.x - rhs, lhs.y - rhs, lhs.z - rhs, lhs.w - rhs);

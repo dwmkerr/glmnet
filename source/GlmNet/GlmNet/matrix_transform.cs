@@ -220,9 +220,9 @@ namespace GlmNet
             tmp = proj*tmp;
 
             tmp /= tmp.w;
-            tmp = tmp*((0.5f) + (0.5f));
-            tmp[0] = tmp[0]*(viewport[2]) + (viewport[0]);
-            tmp[1] = tmp[1]*(viewport[3]) + (viewport[1]);
+            tmp = tmp*0.5f + 0.5f;
+            tmp[0] = tmp[0]*viewport[2] + viewport[0];
+            tmp[1] = tmp[1]*viewport[3] + viewport[1];
 
             return new vec3(tmp.x, tmp.y, tmp.z);
         }
