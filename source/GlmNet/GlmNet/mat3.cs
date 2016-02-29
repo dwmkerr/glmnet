@@ -216,6 +216,17 @@ namespace GlmNet
     {
       return !m1.Equals(m2);
     }
+
+    /// <summary>
+    /// Returns a hash code for this instance.
+    /// </summary>
+    /// <returns>
+    /// A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+    /// </returns>
+    public override int GetHashCode()
+    {
+      return this[0].GetHashCode() ^ this[1].GetHashCode() ^ this[2].GetHashCode();
+    }
     #endregion
 
     /// <summary>
