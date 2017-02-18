@@ -105,5 +105,11 @@ namespace GlmNet
         {
             return new[] { x, y, z };
         }
-	}
+
+        #region ToString support
+        public override string ToString() {
+            return String.Format("[{0}, {1}, {2}]", x, y, z);
+        }
+        #endregion
+    }
 }

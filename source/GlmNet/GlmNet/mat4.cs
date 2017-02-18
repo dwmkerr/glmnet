@@ -178,6 +178,18 @@ namespace GlmNet
 
         #endregion
 
+        #region ToString support
+        public override string ToString() {
+            return String.Format(
+                "[{0}, {1}, {2}, {3}; {4}, {5}, {6}, {7}; {8}, {9}, {10}, {11}; {12}, {13}, {14}, {15}]",
+                this[0, 0], this[1, 0], this[2, 0], this[3, 0],
+                this[0, 1], this[1, 1], this[2, 1], this[3, 1],
+                this[0, 2], this[1, 2], this[2, 2], this[3, 2],
+                this[0, 3], this[1, 3], this[2, 3], this[3, 3]
+            );
+        }
+        #endregion
+
         /// <summary>
         /// The columms of the matrix.
         /// </summary>
