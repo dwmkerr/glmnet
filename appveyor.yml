@@ -9,7 +9,7 @@ before_build:
     ./source/GlmNet/config.ps1
 
 build:
-  project: GlmNet\GlmNet.sln
+  project: ./source/GlmNet/GlmNet.sln
   publish_nuget: true
   verbosity: minimal
 
@@ -28,7 +28,7 @@ deploy:
 - provider: GitHub
   auth_token:
     secure: KTWUORrnJKPKLSf/3ROLY50T9UfgTMnKHf3OjBOv8tlY/DAxtlglRU3eM+j45fMt
-  artifact: SharpShell.*.nupkg, ServerRegistrationManager.*.nupkg, ServerManager.zip, ServerRegistrationManager.zip
+  artifact: GlmNet.nupkg
   on:
     APPVEYOR_REPO_TAG: true
 
