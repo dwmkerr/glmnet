@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 
-namespace GlmNet 
+namespace GlmNet
 {
     /// <summary>
     /// Represents a 4x4 matrix.
@@ -17,8 +17,8 @@ namespace GlmNet
         /// <param name="scale">The scale.</param>
         public mat4(float scale)
         {
-      cols = new[]
-            {
+            cols = new[]
+                  {
                 new vec4(scale, 0.0f, 0.0f, 0.0f),
                 new vec4(0.0f, scale, 0.0f, 0.0f),
                 new vec4(0.0f, 0.0f, scale, 0.0f),
@@ -33,8 +33,8 @@ namespace GlmNet
         /// <param name="cols">The colums of the matrix.</param>
         public mat4(vec4[] cols)
         {
-      this.cols = new[]
-            {
+            this.cols = new[]
+                  {
                 cols[0],
                 cols[1],
                 cols[2],
@@ -58,7 +58,7 @@ namespace GlmNet
         {
             return new mat4
             {
-                cols = new[] 
+                cols = new[]
                 {
                     new vec4(1,0,0,0),
                     new vec4(0,1,0,0),
@@ -106,7 +106,7 @@ namespace GlmNet
         #endregion
 
         #region Conversion
-        
+
         /// <summary>
         /// Returns the matrix as a flat array of elements, column major.
         /// </summary>
@@ -154,10 +154,10 @@ namespace GlmNet
         /// <param name="lhs">The LHS matrix.</param>
         /// <param name="rhs">The RHS matrix.</param>
         /// <returns>The product of <paramref name="lhs"/> and <paramref name="rhs"/>.</returns>
-    public static mat4 operator *(mat4 lhs, mat4 rhs)
+        public static mat4 operator *(mat4 lhs, mat4 rhs)
         {
-      return new mat4(new[]
-            {
+            return new mat4(new[]
+                  {
                 rhs[0][0] * lhs[0] + rhs[0][1] * lhs[1] + rhs[0][2] * lhs[2] + rhs[0][3] * lhs[3],
                 rhs[1][0] * lhs[0] + rhs[1][1] * lhs[1] + rhs[1][2] * lhs[2] + rhs[1][3] * lhs[3],
                 rhs[2][0] * lhs[0] + rhs[2][1] * lhs[1] + rhs[2][2] * lhs[2] + rhs[2][3] * lhs[3],
@@ -178,63 +178,63 @@ namespace GlmNet
 
         #endregion
 
-    #region comparision
-    /// <summary>
-    /// Determines whether the specified <see cref="System.Object" />, is equal to this instance.
-    /// The Difference is detected by the different values
-    /// </summary>
-    /// <param name="obj">The <see cref="System.Object" /> to compare with this instance.</param>
-    /// <returns>
-    ///   <c>true</c> if the specified <see cref="System.Object" /> is equal to this instance; otherwise, <c>false</c>.
-    /// </returns>
-    public override bool Equals(object obj)
-    {
-      if (obj.GetType() == typeof(mat4))
-      {
-        var mat = (mat4)obj;
-        if (mat[0] == this[0] && mat[1] == this[1] && mat[2] == this[2] && mat[3] == this[3])
-          return true;
-      }
+        #region Comparision
+        /// <summary>
+        /// Determines whether the specified <see cref="System.Object" />, is equal to this instance.
+        /// The Difference is detected by the different values
+        /// </summary>
+        /// <param name="obj">The <see cref="System.Object" /> to compare with this instance.</param>
+        /// <returns>
+        ///   <c>true</c> if the specified <see cref="System.Object" /> is equal to this instance; otherwise, <c>false</c>.
+        /// </returns>
+        public override bool Equals(object obj)
+        {
+            if (obj.GetType() == typeof(mat4))
+            {
+                var mat = (mat4)obj;
+                if (mat[0] == this[0] && mat[1] == this[1] && mat[2] == this[2] && mat[3] == this[3])
+                    return true;
+            }
 
-      return false;
-    }
-    /// <summary>
-    /// Implements the operator ==.
-    /// </summary>
-    /// <param name="m1">The first Matrix.</param>
-    /// <param name="m2">The second Matrix.</param>
-    /// <returns>
-    /// The result of the operator.
-    /// </returns>
-    public static bool operator ==(mat4 m1, mat4 m2)
-    {
-      return m1.Equals(m2);
-    }
+            return false;
+        }
+        /// <summary>
+        /// Implements the operator ==.
+        /// </summary>
+        /// <param name="m1">The first Matrix.</param>
+        /// <param name="m2">The second Matrix.</param>
+        /// <returns>
+        /// The result of the operator.
+        /// </returns>
+        public static bool operator ==(mat4 m1, mat4 m2)
+        {
+            return m1.Equals(m2);
+        }
 
-    /// <summary>
-    /// Implements the operator !=.
-    /// </summary>
-    /// <param name="m1">The first Matrix.</param>
-    /// <param name="m2">The second Matrix.</param>
-    /// <returns>
-    /// The result of the operator.
-    /// </returns>
-    public static bool operator !=(mat4 m1, mat4 m2)
-    {
-      return !m1.Equals(m2);
-    }
+        /// <summary>
+        /// Implements the operator !=.
+        /// </summary>
+        /// <param name="m1">The first Matrix.</param>
+        /// <param name="m2">The second Matrix.</param>
+        /// <returns>
+        /// The result of the operator.
+        /// </returns>
+        public static bool operator !=(mat4 m1, mat4 m2)
+        {
+            return !m1.Equals(m2);
+        }
 
-    /// <summary>
-    /// Returns a hash code for this instance.
-    /// </summary>
-    /// <returns>
-    /// A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
-    /// </returns>
-    public override int GetHashCode()
-    {
-      return this[0].GetHashCode() ^ this[1].GetHashCode() ^ this[2].GetHashCode() ^ this[3].GetHashCode();
-    }
-    #endregion
+        /// <summary>
+        /// Returns a hash code for this instance.
+        /// </summary>
+        /// <returns>
+        /// A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+        /// </returns>
+        public override int GetHashCode()
+        {
+            return this[0].GetHashCode() ^ this[1].GetHashCode() ^ this[2].GetHashCode() ^ this[3].GetHashCode();
+        }
+        #endregion
 
         /// <summary>
         /// The columms of the matrix.

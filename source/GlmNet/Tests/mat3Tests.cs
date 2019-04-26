@@ -18,12 +18,12 @@ namespace Tests
         public void MatrixIsColumnMajor()
         {
             //  A pretty critical test as this is fundamental.
-            var m = new mat3(new [] {
+            var m = new mat3(new[] {
                 new vec3(1f, 2f, 3f),
                 new vec3(4f, 5f, 6f),
-                new vec3(7f, 8f, 9f) 
+                new vec3(7f, 8f, 9f)
             });
-            
+
             //  1 4 7
             //  2 5 8
             //  3 6 9
