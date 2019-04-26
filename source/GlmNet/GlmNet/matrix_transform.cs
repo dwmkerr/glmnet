@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GlmNet
 {
-// ReSharper disable InconsistentNaming
+    // ReSharper disable InconsistentNaming
     public static partial class glm
     {
         /// <summary>
@@ -41,19 +41,19 @@ namespace GlmNet
         public static mat4 infinitePerspective(float fovy, float aspect, float zNear)
         {
 
-            float range = tan(fovy/(2f))*zNear;
+            float range = tan(fovy / (2f)) * zNear;
 
-            float left = -range*aspect;
-            float right = range*aspect;
+            float left = -range * aspect;
+            float right = range * aspect;
             float bottom = -range;
             float top = range;
 
             var result = new mat4(0);
-            result[0, 0] = ((2f)*zNear)/(right - left);
-            result[1, 1] = ((2f)*zNear)/(top - bottom);
-            result[2, 2] = - (1f);
-            result[2, 3] = - (1f);
-            result[3, 2] = - (2f)*zNear;
+            result[0, 0] = ((2f) * zNear) / (right - left);
+            result[1, 1] = ((2f) * zNear) / (top - bottom);
+            result[2, 2] = -(1f);
+            result[2, 3] = -(1f);
+            result[3, 2] = -(2f) * zNear;
             return result;
         }
 
@@ -99,12 +99,12 @@ namespace GlmNet
         public static mat4 ortho(float left, float right, float bottom, float top, float zNear, float zFar)
         {
             var result = mat4.identity();
-            result[0, 0] = (2f)/(right - left);
-            result[1, 1] = (2f)/(top - bottom);
-            result[2, 2] = - (2f)/(zFar - zNear);
-            result[3, 0] = - (right + left)/(right - left);
-            result[3, 1] = - (top + bottom)/(top - bottom);
-            result[3, 2] = - (zFar + zNear)/(zFar - zNear);
+            result[0, 0] = (2f) / (right - left);
+            result[1, 1] = (2f) / (top - bottom);
+            result[2, 2] = -(2f) / (zFar - zNear);
+            result[3, 0] = -(right + left) / (right - left);
+            result[3, 1] = -(top + bottom) / (top - bottom);
+            result[3, 2] = -(zFar + zNear) / (zFar - zNear);
             return result;
         }
 
@@ -119,11 +119,11 @@ namespace GlmNet
         public static mat4 ortho(float left, float right, float bottom, float top)
         {
             var result = mat4.identity();
-            result[0, 0] = (2f)/(right - left);
-            result[1, 1] = (2f)/(top - bottom);
-            result[2, 2] = - (1f);
-            result[3, 0] = - (right + left)/(right - left);
-            result[3, 1] = - (top + bottom)/(top - bottom);
+            result[0, 0] = (2f) / (right - left);
+            result[1, 1] = (2f) / (top - bottom);
+            result[2, 2] = -(1f);
+            result[3, 0] = -(right + left) / (right - left);
+            result[3, 1] = -(top + bottom) / (top - bottom);
             return result;
         }
 
@@ -145,6 +145,7 @@ namespace GlmNet
             result[2, 2] = -(zFar + zNear) / (zFar - zNear);
             result[2, 3] = -1.0f;
             result[3, 2] = -(2.0f * zFar * zNear) / (zFar - zNear);
+            result[3, 3] = 0.0f;
             return result;
         }
 
@@ -165,15 +166,15 @@ namespace GlmNet
 
             var rad = fov;
 
-            var h = glm.cos((0.5f)*rad)/glm.sin((0.5f)*rad);
-            var w = h*height/width;
+            var h = glm.cos((0.5f) * rad) / glm.sin((0.5f) * rad);
+            var w = h * height / width;
 
             var result = new mat4(0);
             result[0, 0] = w;
             result[1, 1] = h;
-            result[2, 2] = - (zFar + zNear)/(zFar - zNear);
-            result[2, 3] = - (1f);
-            result[3, 2] = - ((2f)*zFar*zNear)/(zFar - zNear);
+            result[2, 2] = -(zFar + zNear) / (zFar - zNear);
+            result[2, 3] = -(1f);
+            result[3, 2] = -((2f) * zFar * zNear) / (zFar - zNear);
             return result;
         }
 
@@ -195,13 +196,13 @@ namespace GlmNet
                 return Result; // Error
 
             vec3 Temp = new vec3(
-                ((viewport[2]) - (2f)*(center.x - (viewport[0])))/delta.x,
-                ((viewport[3]) - (2f)*(center.y - (viewport[1])))/delta.y,
+                ((viewport[2]) - (2f) * (center.x - (viewport[0]))) / delta.x,
+                ((viewport[3]) - (2f) * (center.y - (viewport[1]))) / delta.y,
                 (0f));
 
             // Translate and scale the picked region to the entire window
             Result = translate(Result, Temp);
-            return scale(Result, new vec3((viewport[2])/delta.x, (viewport[3])/delta.y, (1)));
+            return scale(Result, new vec3((viewport[2]) / delta.x, (viewport[3]) / delta.y, (1)));
         }
 
         /// <summary>
@@ -216,13 +217,13 @@ namespace GlmNet
 
         {
             vec4 tmp = new vec4(obj, (1f));
-            tmp = model*tmp;
-            tmp = proj*tmp;
+            tmp = model * tmp;
+            tmp = proj * tmp;
 
             tmp /= tmp.w;
-            tmp = tmp*0.5f + 0.5f;
-            tmp[0] = tmp[0]*viewport[2] + viewport[0];
-            tmp[1] = tmp[1]*viewport[3] + viewport[1];
+            tmp = tmp * 0.5f + 0.5f;
+            tmp[0] = tmp[0] * viewport[2] + viewport[0];
+            tmp[1] = tmp[1] * viewport[3] + viewport[1];
 
             return new vec3(tmp.x, tmp.y, tmp.z);
         }
@@ -310,18 +311,18 @@ namespace GlmNet
         /// <returns></returns>
         public static mat4 tweakedInfinitePerspective(float fovy, float aspect, float zNear)
         {
-            float range = tan(fovy/(2))*zNear;
-            float left = -range*aspect;
-            float right = range*aspect;
+            float range = tan(fovy / (2)) * zNear;
+            float left = -range * aspect;
+            float right = range * aspect;
             float bottom = -range;
             float top = range;
 
             mat4 Result = new mat4((0f));
-            Result[0, 0] = ((2)*zNear)/(right - left);
-            Result[1, 1] = ((2)*zNear)/(top - bottom);
+            Result[0, 0] = ((2) * zNear) / (right - left);
+            Result[1, 1] = ((2) * zNear) / (top - bottom);
             Result[2, 2] = (0.0001f) - (1f);
             Result[2, 3] = (-1);
-            Result[3, 2] = - ((0.0001f) - (2))*zNear;
+            Result[3, 2] = -((0.0001f) - (2)) * zNear;
             return Result;
         }
 
@@ -333,20 +334,20 @@ namespace GlmNet
         /// <param name="proj">The proj.</param>
         /// <param name="viewport">The viewport.</param>
         /// <returns></returns>
-        public static vec3 unProject(vec3 win, mat4 model, mat4 proj, vec4 viewport )
+        public static vec3 unProject(vec3 win, mat4 model, mat4 proj, vec4 viewport)
         {
-            mat4 Inverse = glm.inverse(proj*model);
+            mat4 Inverse = glm.inverse(proj * model);
 
             vec4 tmp = new vec4(win, (1f));
-            tmp.x = (tmp.x - (viewport[0]))/(viewport[2]);
-            tmp.y = (tmp.y - (viewport[1]))/(viewport[3]);
-            tmp = tmp*(2f) - (1f);
+            tmp.x = (tmp.x - (viewport[0])) / (viewport[2]);
+            tmp.y = (tmp.y - (viewport[1])) / (viewport[3]);
+            tmp = tmp * (2f) - (1f);
 
-            vec4 obj = Inverse*tmp;
+            vec4 obj = Inverse * tmp;
             obj /= obj.w;
 
             return new vec3(obj);
         }
     }
-// ReSharper restore InconsistentNaming
+    // ReSharper restore InconsistentNaming
 }

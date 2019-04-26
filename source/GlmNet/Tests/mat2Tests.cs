@@ -18,11 +18,11 @@ namespace Tests
         public void MatrixIsColumnMajor()
         {
             //  A pretty critical test as this is fundamental.
-            var m = new mat2(new [] {
+            var m = new mat2(new[] {
                 new vec2(1f, 2f),
                 new vec2(3f, 4f)
             });
-            
+
             //  1 3 
             //  2 4
 
@@ -31,10 +31,10 @@ namespace Tests
             Assert.AreEqual(3f, m[1][0], "Matrix does not implement column major semantics");
             Assert.AreEqual(4f, m[1][1], "Matrix does not implement column major semantics");
 
-            Assert.AreEqual(1f, m[0,0], "Matrix does not implement column major semantics");
-            Assert.AreEqual(2f, m[0,1], "Matrix does not implement column major semantics");
-            Assert.AreEqual(3f, m[1,0], "Matrix does not implement column major semantics");
-            Assert.AreEqual(4f, m[1,1], "Matrix does not implement column major semantics");
+            Assert.AreEqual(1f, m[0, 0], "Matrix does not implement column major semantics");
+            Assert.AreEqual(2f, m[0, 1], "Matrix does not implement column major semantics");
+            Assert.AreEqual(3f, m[1, 0], "Matrix does not implement column major semantics");
+            Assert.AreEqual(4f, m[1, 1], "Matrix does not implement column major semantics");
 
             Assert.AreEqual(new vec2(1f, 2f), m[0], "Matrix does not implement column major semantics");
             Assert.AreEqual(new vec2(3f, 4f), m[1], "Matrix does not implement column major semantics");

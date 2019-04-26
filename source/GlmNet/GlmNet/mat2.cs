@@ -62,7 +62,7 @@ namespace GlmNet
         {
             return new mat2
             {
-                cols = new[] 
+                cols = new[]
                 {
                     new vec2(1,0),
                     new vec2(0,1)
@@ -131,8 +131,8 @@ namespace GlmNet
         public static vec2 operator *(mat2 lhs, vec2 rhs)
         {
             return new vec2(
-                lhs[0,0] * rhs[0] + lhs[1,0] * rhs[1], 
-                lhs[0,1] * rhs[0] + lhs[1,1] * rhs[1]
+                lhs[0, 0] * rhs[0] + lhs[1, 0] * rhs[1],
+                lhs[0, 1] * rhs[0] + lhs[1, 1] * rhs[1]
             );
         }
 
@@ -146,12 +146,12 @@ namespace GlmNet
         {
             return new mat2(new[]
             {
-			    lhs[0][0] * rhs[0] + lhs[1][0] * rhs[1],
-			    lhs[0][1] * rhs[0] + lhs[1][1] * rhs[1]
+          lhs[0][0] * rhs[0] + lhs[1][0] * rhs[1],
+          lhs[0][1] * rhs[0] + lhs[1][1] * rhs[1]
             });
         }
 
-        public static mat2 operator * (mat2 lhs, float s)
+        public static mat2 operator *(mat2 lhs, float s)
         {
             return new mat2(new[]
             {
@@ -163,13 +163,75 @@ namespace GlmNet
         #endregion
 
         #region ToString support
-        public override string ToString() {
+
+        public override string ToString()
+        {
             return String.Format(
                 "[{0}, {1}; {2}, {3}]",
                 this[0, 0], this[1, 0],
                 this[0, 1], this[1, 1]
             );
         }
+        
+        #endregion
+
+        #region comparision
+        /// <summary>
+        /// Determines whether the specified <see cref="System.Object" />, is equal to this instance.
+        /// The Difference is detected by the different values
+        /// </summary>
+        /// <param name="obj">The <see cref="System.Object" /> to compare with this instance.</param>
+        /// <returns>
+        ///   <c>true</c> if the specified <see cref="System.Object" /> is equal to this instance; otherwise, <c>false</c>.
+        /// </returns>
+        public override bool Equals(object obj)
+        {
+            if (obj.GetType() == typeof(mat2))
+            {
+                var mat = (mat2)obj;
+                if (mat[0] == this[0] && mat[1] == this[1])
+                    return true;
+            }
+
+            return false;
+        }
+        /// <summary>
+        /// Implements the operator ==.
+        /// </summary>
+        /// <param name="m1">The first Matrix.</param>
+        /// <param name="m2">The second Matrix.</param>
+        /// <returns>
+        /// The result of the operator.
+        /// </returns>
+        public static bool operator ==(mat2 m1, mat2 m2)
+        {
+            return m1.Equals(m2);
+        }
+
+        /// <summary>
+        /// Implements the operator !=.
+        /// </summary>
+        /// <param name="m1">The first Matrix.</param>
+        /// <param name="m2">The second Matrix.</param>
+        /// <returns>
+        /// The result of the operator.
+        /// </returns>
+        public static bool operator !=(mat2 m1, mat2 m2)
+        {
+            return !m1.Equals(m2);
+        }
+
+        /// <summary>
+        /// Returns a hash code for this instance.
+        /// </summary>
+        /// <returns>
+        /// A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+        /// </returns>
+        public override int GetHashCode()
+        {
+            return this[0].GetHashCode() ^ this[1].GetHashCode();
+        }
+        
         #endregion
 
         /// <summary>

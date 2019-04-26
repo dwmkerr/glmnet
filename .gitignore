@@ -27,4 +27,6 @@ source/GlmNet/packages/
 release/0.*
 source/GlmNet/Reference/Release
 source/GlmNet/Release
+source/GlmNet/artifacts
 release/nuspec
+.vs/
