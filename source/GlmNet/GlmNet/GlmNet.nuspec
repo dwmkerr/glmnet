@@ -6,7 +6,6 @@
         <title>GlmNet</title>
         <authors>Dave Kerr</authors>
         <owners>Dave Kerr</owners>
-        <owners />
         <projectUrl>https://github.com/dwmkerr/glmnet</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>GlmNet is a .NET version of the popular GLM mathematics library.</description>
