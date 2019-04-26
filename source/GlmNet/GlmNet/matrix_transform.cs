@@ -145,6 +145,7 @@ namespace GlmNet
             result[2, 2] = -(zFar + zNear) / (zFar - zNear);
             result[2, 3] = -1.0f;
             result[3, 2] = -(2.0f * zFar * zNear) / (zFar - zNear);
+            result[3, 3] = 0.0f;
             return result;
         }
 
