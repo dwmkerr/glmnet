@@ -26,6 +26,7 @@ The [OpenGL Mathematics Library](http://glm.g-truc.net/) is open source, license
 * [Developer Guide](#developer-guide)
     * [Building & Testing](#building--testing)
     * [CI/CD](#cicd)
+    * [Releasing](#releasing)
 
 <!-- vim-markdown-toc -->
 
@@ -215,3 +216,13 @@ To run the full pipeline, the build system should have the following environment
 | Environment Variable | Usage                           |
 |----------------------|---------------------------------|
 | `CODECOV_TOKEN`      | The upload token for Codecov.io |
+
+### Releasing
+
+Update the solution version in the AssemblyInfo. Create a git tag which matches this new version. Then push:
+
+```sh
+git push --follow-tags
+```
+
+As long as the build succeeds, the presence of the tag will trigger the release.
