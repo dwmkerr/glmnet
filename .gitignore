@@ -28,3 +28,4 @@ release/0.*
 source/GlmNet/Reference/Release
 source/GlmNet/Release
 release/nuspec
+.vs/
