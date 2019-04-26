@@ -1,20 +1,20 @@
 ﻿namespace GlmNet
 {
-// ReSharper disable InconsistentNaming
+    // ReSharper disable InconsistentNaming
     public static partial class glm
     {
         public static mat2 inverse(mat2 m)
         {
-            
+
             float OneOverDeterminant = (1f) / (
-                + m[0][0] * m[1][1]
+                +m[0][0] * m[1][1]
                 - m[1][0] * m[0][1]);
 
-            mat2 Inverse= new mat2(
-                + m[1][1] * OneOverDeterminant,
-                - m[0][1] * OneOverDeterminant,
-                - m[1][0] * OneOverDeterminant,
-                + m[0][0] * OneOverDeterminant);
+            mat2 Inverse = new mat2(
+                +m[1][1] * OneOverDeterminant,
+                -m[0][1] * OneOverDeterminant,
+                -m[1][0] * OneOverDeterminant,
+                +m[0][0] * OneOverDeterminant);
 
             return Inverse;
         }
@@ -22,48 +22,48 @@
         public static mat3 inverse(mat3 m)
         {
             float OneOverDeterminant = (1f) / (
-                + m[0][0] * (m[1][1] * m[2][2] - m[2][1] * m[1][2])
+                +m[0][0] * (m[1][1] * m[2][2] - m[2][1] * m[1][2])
                 - m[1][0] * (m[0][1] * m[2][2] - m[2][1] * m[0][2])
                 + m[2][0] * (m[0][1] * m[1][2] - m[1][1] * m[0][2]));
 
             mat3 Inverse = new mat3(0);
-            Inverse[0,0] = + (m[1][1] * m[2][2] - m[2][1] * m[1][2]) * OneOverDeterminant;
-            Inverse[1,0] = - (m[1][0] * m[2][2] - m[2][0] * m[1][2]) * OneOverDeterminant;
-            Inverse[2,0] = + (m[1][0] * m[2][1] - m[2][0] * m[1][1]) * OneOverDeterminant;
-            Inverse[0,1] = - (m[0][1] * m[2][2] - m[2][1] * m[0][2]) * OneOverDeterminant;
-            Inverse[1,1] = + (m[0][0] * m[2][2] - m[2][0] * m[0][2]) * OneOverDeterminant;
-            Inverse[2,1] = - (m[0][0] * m[2][1] - m[2][0] * m[0][1]) * OneOverDeterminant;
-            Inverse[0,2] = + (m[0][1] * m[1][2] - m[1][1] * m[0][2]) * OneOverDeterminant;
-            Inverse[1,2] = - (m[0][0] * m[1][2] - m[1][0] * m[0][2]) * OneOverDeterminant;
-            Inverse[2,2] = + (m[0][0] * m[1][1] - m[1][0] * m[0][1]) * OneOverDeterminant;
+            Inverse[0, 0] = +(m[1][1] * m[2][2] - m[2][1] * m[1][2]) * OneOverDeterminant;
+            Inverse[1, 0] = -(m[1][0] * m[2][2] - m[2][0] * m[1][2]) * OneOverDeterminant;
+            Inverse[2, 0] = +(m[1][0] * m[2][1] - m[2][0] * m[1][1]) * OneOverDeterminant;
+            Inverse[0, 1] = -(m[0][1] * m[2][2] - m[2][1] * m[0][2]) * OneOverDeterminant;
+            Inverse[1, 1] = +(m[0][0] * m[2][2] - m[2][0] * m[0][2]) * OneOverDeterminant;
+            Inverse[2, 1] = -(m[0][0] * m[2][1] - m[2][0] * m[0][1]) * OneOverDeterminant;
+            Inverse[0, 2] = +(m[0][1] * m[1][2] - m[1][1] * m[0][2]) * OneOverDeterminant;
+            Inverse[1, 2] = -(m[0][0] * m[1][2] - m[1][0] * m[0][2]) * OneOverDeterminant;
+            Inverse[2, 2] = +(m[0][0] * m[1][1] - m[1][0] * m[0][1]) * OneOverDeterminant;
 
             return Inverse;
-            
+
         }
         public static mat4 inverse(mat4 m)
         {
             float Coef00 = m[2][2] * m[3][3] - m[3][2] * m[2][3];
-            float  Coef02 = m[1][2] * m[3][3] - m[3][2] * m[1][3];
-            float  Coef03 = m[1][2] * m[2][3] - m[2][2] * m[1][3];
+            float Coef02 = m[1][2] * m[3][3] - m[3][2] * m[1][3];
+            float Coef03 = m[1][2] * m[2][3] - m[2][2] * m[1][3];
 
-            float  Coef04 = m[2][1] * m[3][3] - m[3][1] * m[2][3];
-            float  Coef06 = m[1][1] * m[3][3] - m[3][1] * m[1][3];
-            float  Coef07 = m[1][1] * m[2][3] - m[2][1] * m[1][3];
+            float Coef04 = m[2][1] * m[3][3] - m[3][1] * m[2][3];
+            float Coef06 = m[1][1] * m[3][3] - m[3][1] * m[1][3];
+            float Coef07 = m[1][1] * m[2][3] - m[2][1] * m[1][3];
 
-            float  Coef08 = m[2][1] * m[3][2] - m[3][1] * m[2][2];
-            float  Coef10 = m[1][1] * m[3][2] - m[3][1] * m[1][2];
-            float  Coef11 = m[1][1] * m[2][2] - m[2][1] * m[1][2];
+            float Coef08 = m[2][1] * m[3][2] - m[3][1] * m[2][2];
+            float Coef10 = m[1][1] * m[3][2] - m[3][1] * m[1][2];
+            float Coef11 = m[1][1] * m[2][2] - m[2][1] * m[1][2];
 
-            float  Coef12 = m[2][0] * m[3][3] - m[3][0] * m[2][3];
-            float  Coef14 = m[1][0] * m[3][3] - m[3][0] * m[1][3];
-            float  Coef15 = m[1][0] * m[2][3] - m[2][0] * m[1][3];
+            float Coef12 = m[2][0] * m[3][3] - m[3][0] * m[2][3];
+            float Coef14 = m[1][0] * m[3][3] - m[3][0] * m[1][3];
+            float Coef15 = m[1][0] * m[2][3] - m[2][0] * m[1][3];
 
-            float  Coef16 = m[2][0] * m[3][2] - m[3][0] * m[2][2];
-            float  Coef18 = m[1][0] * m[3][2] - m[3][0] * m[1][2];
-            float  Coef19 = m[1][0] * m[2][2] - m[2][0] * m[1][2];
+            float Coef16 = m[2][0] * m[3][2] - m[3][0] * m[2][2];
+            float Coef18 = m[1][0] * m[3][2] - m[3][0] * m[1][2];
+            float Coef19 = m[1][0] * m[2][2] - m[2][0] * m[1][2];
 
-            float  Coef20 = m[2][0] * m[3][1] - m[3][0] * m[2][1];
-            float  Coef22 = m[1][0] * m[3][1] - m[3][0] * m[1][1];
+            float Coef20 = m[2][0] * m[3][1] - m[3][0] * m[2][1];
+            float Coef22 = m[1][0] * m[3][1] - m[3][0] * m[1][1];
             float Coef23 = m[1][0] * m[2][1] - m[2][0] * m[1][1];
 
             vec4 Fac0 = new vec4(Coef00, Coef00, Coef02, Coef03);
@@ -97,5 +97,5 @@
             return Inverse * OneOverDeterminant;
         }
     }
-// ReSharper restore InconsistentNaming
+    // ReSharper restore InconsistentNaming
 }

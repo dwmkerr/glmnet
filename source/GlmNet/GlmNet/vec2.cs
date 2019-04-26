@@ -1,6 +1,6 @@
 using System;
 
-namespace GlmNet 
+namespace GlmNet
 {
     /// <summary>
     /// Represents a two dimensional vector.
@@ -12,15 +12,15 @@ namespace GlmNet
 
         public float this[int index]
         {
-            get 
+            get
             {
-                if(index == 0) return x;
-                else if(index == 1) return y;
+                if (index == 0) return x;
+                else if (index == 1) return y;
                 else throw new Exception("Out of range.");
             }
-            set 
+            set
             {
-                if(index == 0) x = value;
+                if (index == 0) x = value;
                 else if (index == 1) y = value;
                 else throw new Exception("Out of range.");
             }
@@ -48,8 +48,8 @@ namespace GlmNet
             this.x = v.x;
             this.y = v.y;
         }
-        
-        public static vec2 operator + (vec2 lhs, vec2 rhs)
+
+        public static vec2 operator +(vec2 lhs, vec2 rhs)
         {
             return new vec2(lhs.x + rhs.x, lhs.y + rhs.y);
         }
@@ -64,7 +64,7 @@ namespace GlmNet
             return new vec2(lhs.x - rhs.x, lhs.y - rhs.y);
         }
 
-        public static vec2 operator - (vec2 lhs, float rhs)
+        public static vec2 operator -(vec2 lhs, float rhs)
         {
             return new vec2(lhs.x - rhs, lhs.y - rhs);
         }
@@ -79,7 +79,7 @@ namespace GlmNet
             return new vec2(rhs.x * lhs, rhs.y * lhs);
         }
 
-        public static vec2 operator * (vec2 lhs, vec2 rhs)
+        public static vec2 operator *(vec2 lhs, vec2 rhs)
         {
             return new vec2(rhs.x * lhs.x, rhs.y * lhs.y);
         }
@@ -93,5 +93,63 @@ namespace GlmNet
         {
             return new[] { x, y };
         }
+
+        #region comparision
+        /// <summary>
+        /// Determines whether the specified <see cref="System.Object" />, is equal to this instance.
+        /// The Difference is detected by the different values
+        /// </summary>
+        /// <param name="obj">The <see cref="System.Object" /> to compare with this instance.</param>
+        /// <returns>
+        ///   <c>true</c> if the specified <see cref="System.Object" /> is equal to this instance; otherwise, <c>false</c>.
+        /// </returns>
+        public override bool Equals(object obj)
+        {
+            if (obj.GetType() == typeof(vec2))
+            {
+                var vec = (vec2)obj;
+                if (this.x == vec.x && this.y == vec.y)
+                    return true;
+            }
+
+            return false;
+        }
+        /// <summary>
+        /// Implements the operator ==.
+        /// </summary>
+        /// <param name="v1">The first Vector.</param>
+        /// <param name="v2">The second Vector.</param>
+        /// <returns>
+        /// The result of the operator.
+        /// </returns>
+        public static bool operator ==(vec2 v1, vec2 v2)
+        {
+            return v1.Equals(v2);
+        }
+
+        /// <summary>
+        /// Implements the operator !=.
+        /// </summary>
+        /// <param name="v1">The first Vector.</param>
+        /// <param name="v2">The second Vector.</param>
+        /// <returns>
+        /// The result of the operator.
+        /// </returns>
+        public static bool operator !=(vec2 v1, vec2 v2)
+        {
+            return !v1.Equals(v2);
+        }
+
+        /// <summary>
+        /// Returns a hash code for this instance.
+        /// </summary>
+        /// <returns>
+        /// A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+        /// </returns>
+        public override int GetHashCode()
+        {
+            return this.x.GetHashCode() ^ this.y.GetHashCode();
+        }
+        #endregion
     }
 }

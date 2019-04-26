@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 
-namespace GlmNet 
+namespace GlmNet
 {
     /// <summary>
     /// Represents a 3x3 matrix.
@@ -56,7 +56,7 @@ namespace GlmNet
         {
             return new mat3
             {
-                cols = new[] 
+                cols = new[]
                 {
                     new vec3(1,0,0),
                     new vec3(0,1,0),
@@ -120,8 +120,8 @@ namespace GlmNet
         public mat2 to_mat2()
         {
             return new mat2(new[] {
-            new vec2(cols[0][0], cols[0][1]),
-            new vec2(cols[1][0], cols[1][1])});
+      new vec2(cols[0][0], cols[0][1]),
+      new vec2(cols[1][0], cols[1][1])});
         }
 
         #endregion
@@ -153,13 +153,13 @@ namespace GlmNet
         {
             return new mat3(new[]
             {
-                lhs[0][0] * rhs[0] + lhs[1][0] * rhs[1] + lhs[2][0] * rhs[2],
-                lhs[0][1] * rhs[0] + lhs[1][1] * rhs[1] + lhs[2][1] * rhs[2],
-                lhs[0][2] * rhs[0] + lhs[1][2] * rhs[1] + lhs[2][2] * rhs[2]
+          lhs[0][0] * rhs[0] + lhs[1][0] * rhs[1] + lhs[2][0] * rhs[2],
+          lhs[0][1] * rhs[0] + lhs[1][1] * rhs[1] + lhs[2][1] * rhs[2],
+          lhs[0][2] * rhs[0] + lhs[1][2] * rhs[1] + lhs[2][2] * rhs[2]
             });
         }
 
-        public static mat3 operator * (mat3 lhs, float s)
+        public static mat3 operator *(mat3 lhs, float s)
         {
             return new mat3(new[]
             {
@@ -169,6 +169,64 @@ namespace GlmNet
             });
         }
 
+        #endregion
+
+        #region comparision
+        /// <summary>
+        /// Determines whether the specified <see cref="System.Object" />, is equal to this instance.
+        /// The Difference is detected by the different values
+        /// </summary>
+        /// <param name="obj">The <see cref="System.Object" /> to compare with this instance.</param>
+        /// <returns>
+        ///   <c>true</c> if the specified <see cref="System.Object" /> is equal to this instance; otherwise, <c>false</c>.
+        /// </returns>
+        public override bool Equals(object obj)
+        {
+            if (obj.GetType() == typeof(mat3))
+            {
+                var mat = (mat3)obj;
+                if (mat[0] == this[0] && mat[1] == this[1] && mat[2] == this[2])
+                    return true;
+            }
+
+            return false;
+        }
+        /// <summary>
+        /// Implements the operator ==.
+        /// </summary>
+        /// <param name="m1">The first Matrix.</param>
+        /// <param name="m2">The second Matrix.</param>
+        /// <returns>
+        /// The result of the operator.
+        /// </returns>
+        public static bool operator ==(mat3 m1, mat3 m2)
+        {
+            return m1.Equals(m2);
+        }
+
+        /// <summary>
+        /// Implements the operator !=.
+        /// </summary>
+        /// <param name="m1">The first Matrix.</param>
+        /// <param name="m2">The second Matrix.</param>
+        /// <returns>
+        /// The result of the operator.
+        /// </returns>
+        public static bool operator !=(mat3 m1, mat3 m2)
+        {
+            return !m1.Equals(m2);
+        }
+
+        /// <summary>
+        /// Returns a hash code for this instance.
+        /// </summary>
+        /// <returns>
+        /// A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+        /// </returns>
+        public override int GetHashCode()
+        {
+            return this[0].GetHashCode() ^ this[1].GetHashCode() ^ this[2].GetHashCode();
+        }
         #endregion
 
         /// <summary>

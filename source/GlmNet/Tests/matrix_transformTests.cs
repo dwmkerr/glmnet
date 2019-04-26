@@ -19,7 +19,7 @@ namespace Tests
         public void CanCreatePerspectiveTransformation()
         {
             var fieldOfView = glm.radians(60f);
-            var aspectRatio = 600f/800f;
+            var aspectRatio = 600f / 800f;
             var perspective = glm.perspective(fieldOfView, aspectRatio, 1, 100);
         }
 
