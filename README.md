@@ -1,6 +1,6 @@
 # GlmNet
 
-[![Nuget Badge](https://www.nuget.org/packages/GlmNet)](https://img.shields.io/nuget/v/GlmNet.svg)] [![Build status](https://ci.appveyor.com/api/projects/status/j2ymme2a28idi535?svg=true)](https://ci.appveyor.com/project/dwmkerr/glmnet) [![codecov](https://codecov.io/gh/dwmkerr/glmnet/branch/master/graph/badge.svg)](https://codecov.io/gh/dwmkerr/glmnet) [![GuardRails badge](https://badges.production.guardrails.io/dwmkerr/glmnet.svg)](https://www.guardrails.io)
+[![Nuget Badge](https://img.shields.io/nuget/v/GlmNet.svg)](https://www.nuget.org/packages/GlmNet)] [![Build status](https://ci.appveyor.com/api/projects/status/j2ymme2a28idi535?svg=true)](https://ci.appveyor.com/project/dwmkerr/glmnet) [![codecov](https://codecov.io/gh/dwmkerr/glmnet/branch/master/graph/badge.svg)](https://codecov.io/gh/dwmkerr/glmnet) [![GuardRails badge](https://badges.production.guardrails.io/dwmkerr/glmnet.svg)](https://www.guardrails.io)
 
 GlmNet is a .NET version of the excellent [OpenGL Mathematics library (GLM)](http://glm.g-truc.net/).
 
