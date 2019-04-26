@@ -94,7 +94,8 @@ namespace GlmNet
             return new[] { x, y };
         }
 
-        #region comparision
+        #region Comparision
+        
         /// <summary>
         /// Determines whether the specified <see cref="System.Object" />, is equal to this instance.
         /// The Difference is detected by the different values
@@ -150,6 +151,16 @@ namespace GlmNet
         {
             return this.x.GetHashCode() ^ this.y.GetHashCode();
         }
+        
+        #endregion
+
+        #region ToString support
+            
+        public override string ToString()
+        {
+            return String.Format("[{0}, {1}]", x, y);
+        }
+        
         #endregion
     }
 }
