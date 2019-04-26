@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>$id$</id>
+        <version>$version$</version>
+        <title>GlmNet</title>
+        <authors>Dave Kerr</authors>
+        <owners>Dave Kerr</owners>
+        <projectUrl>https://github.com/dwmkerr/glmnet</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>GlmNet is a .NET version of the popular GLM mathematics library.</description>
+        <summary>GlmNet is a .NET version of the popular GLM mathematics library.</summary>
+        <copyright>Copyright © Dave Kerr 2019</copyright>
+        <tags>SharpGL,GLM,Math,Matrix,Vector</tags>
+    </metadata>
+</package>

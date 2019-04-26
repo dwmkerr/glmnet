@@ -1,0 +1,37 @@
+version: 1.0.{build}
+image: Visual Studio 2017
+configuration: Release
+
+# Before building, restore Nuget packages and install dependencies.
+before_build:
+- ps: |
+    nuget restore source\GlmNet\GlmNet.sln
+    ./source/GlmNet/config.ps1
+
+build:
+  project: ./source/GlmNet/GlmNet.sln
+  publish_nuget: true
+  verbosity: minimal
+
+# Track our artifacts.
+artifacts:
+- path: ./source/GlmNet/artifacts
+  name: artifacts
+
+# Deploy to Nuget and GitHub Releases.
+deploy:
+- provider: NuGet
+  api_key:
+    secure: TWio+nDN8Ew7+OH7J3tLcEoM6DmxrIwfAr+2Ag8ROWJUEnXyoSAZ/I1GxBgB0qMd
+  on:
+    APPVEYOR_REPO_TAG: true
+- provider: GitHub
+  auth_token:
+    secure: KTWUORrnJKPKLSf/3ROLY50T9UfgTMnKHf3OjBOv8tlY/DAxtlglRU3eM+j45fMt
+  artifact: GlmNet.nupkg
+  on:
+    APPVEYOR_REPO_TAG: true
+
+# After the build as completed, analyse coverage and upload.
+on_success:
+- ps: ./source/GlmNet/coverage.ps1
