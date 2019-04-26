@@ -2,6 +2,8 @@
 
 [![Build status](https://ci.appveyor.com/api/projects/status/j2ymme2a28idi535?svg=true)](https://ci.appveyor.com/project/dwmkerr/glmnet) [![codecov](https://codecov.io/gh/dwmkerr/glmnet/branch/master/graph/badge.svg)](https://codecov.io/gh/dwmkerr/glmnet)
 
+[![GuardRails badge](https://badges.production.guardrails.io/dwmkerr/glmnet.svg)](https://www.guardrails.io)
+
 GlmNet is a .NET version of the excellent [OpenGL Mathematics library (GLM)](http://glm.g-truc.net/).
 
 The [OpenGL Mathematics Library](http://glm.g-truc.net/) is open source, licensed under the MIT license. I would like to thank [Christophe Riccio](http://www.g-truc.net/) for his permission to wrap the library.
