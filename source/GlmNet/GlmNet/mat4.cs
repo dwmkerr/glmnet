@@ -6,7 +6,7 @@ namespace GlmNet
     /// <summary>
     /// Represents a 4x4 matrix.
     /// </summary>
-	public struct mat4
+    public struct mat4
     {
         #region Construction
 
@@ -15,7 +15,7 @@ namespace GlmNet
         /// This matrix is the identity matrix scaled by <paramref name="scale"/>.
         /// </summary>
         /// <param name="scale">The scale.</param>
-		public mat4(float scale)
+        public mat4(float scale)
         {
             cols = new []
             {
@@ -81,10 +81,10 @@ namespace GlmNet
         /// <param name="column">The column index.</param>
         /// <returns>The column at index <paramref name="column"/>.</returns>
         public vec4 this[int column]
-		{
+        {
             get { return cols[column]; }
             set { cols[column] = value; }
-		}
+        }
 
         /// <summary>
         /// Gets or sets the element at <paramref name="column"/> and <paramref name="row"/>.
@@ -123,9 +123,9 @@ namespace GlmNet
         public mat3 to_mat3()
         {
             return new mat3(new[] {
-			new vec3(cols[0][0], cols[0][1], cols[0][2]),
-			new vec3(cols[1][0], cols[1][1], cols[1][2]),
-			new vec3(cols[2][0], cols[2][1], cols[2][2])});
+            new vec3(cols[0][0], cols[0][1], cols[0][2]),
+            new vec3(cols[1][0], cols[1][1], cols[1][2]),
+            new vec3(cols[2][0], cols[2][1], cols[2][2])});
         }
 
         #endregion
@@ -182,5 +182,5 @@ namespace GlmNet
         /// The columms of the matrix.
         /// </summary>
         private vec4[] cols;
-	}
+    }
 }

@@ -120,8 +120,8 @@ namespace GlmNet
         public mat2 to_mat2()
         {
             return new mat2(new[] {
-			new vec2(cols[0][0], cols[0][1]),
-			new vec2(cols[1][0], cols[1][1])});
+            new vec2(cols[0][0], cols[0][1]),
+            new vec2(cols[1][0], cols[1][1])});
         }
 
         #endregion
@@ -153,9 +153,9 @@ namespace GlmNet
         {
             return new mat3(new[]
             {
-			    lhs[0][0] * rhs[0] + lhs[1][0] * rhs[1] + lhs[2][0] * rhs[2],
-			    lhs[0][1] * rhs[0] + lhs[1][1] * rhs[1] + lhs[2][1] * rhs[2],
-			    lhs[0][2] * rhs[0] + lhs[1][2] * rhs[1] + lhs[2][2] * rhs[2]
+                lhs[0][0] * rhs[0] + lhs[1][0] * rhs[1] + lhs[2][0] * rhs[2],
+                lhs[0][1] * rhs[0] + lhs[1][1] * rhs[1] + lhs[2][1] * rhs[2],
+                lhs[0][2] * rhs[0] + lhs[1][2] * rhs[1] + lhs[2][2] * rhs[2]
             });
         }
 

@@ -8,33 +8,33 @@ namespace GlmNet
     /// with the real GLM.
     /// </summary>
 // ReSharper disable InconsistentNaming
-	public static partial class glm
-	{
+    public static partial class glm
+    {
         public static vec3 cross(vec3 lhs, vec3 rhs)
         {
             return new vec3(
                 lhs.y * rhs.z - rhs.y * lhs.z,
-			    lhs.z * rhs.x - rhs.z * lhs.x,
-			    lhs.x * rhs.y - rhs.x * lhs.y);
+                lhs.z * rhs.x - rhs.z * lhs.x,
+                lhs.x * rhs.y - rhs.x * lhs.y);
         }
 
         public static float dot(vec2 x, vec2 y)
-		{
+        {
             vec2 tmp = new vec2(x * y);
-			return tmp.x + tmp.y;
-		}
+            return tmp.x + tmp.y;
+        }
 
         public static float dot(vec3 x, vec3 y)
         {
-			vec3 tmp = new vec3(x * y);
-			return tmp.x + tmp.y + tmp.z;
-		}
+            vec3 tmp = new vec3(x * y);
+            return tmp.x + tmp.y + tmp.z;
+        }
 
         public static float dot(vec4 x, vec4 y)
-		{
+        {
             vec4 tmp = new vec4(x * y);
-			return (tmp.x + tmp.y) + (tmp.z + tmp.w);
-		}
+            return (tmp.x + tmp.y) + (tmp.z + tmp.w);
+        }
 
         public static vec2 normalize(vec2 v)
         {
