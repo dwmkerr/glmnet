@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 
 namespace GlmNet
 {
@@ -113,7 +112,14 @@ namespace GlmNet
         /// <returns></returns>
         public float[] to_array()
         {
-            return cols.SelectMany(v => v.to_array()).ToArray();
+            return new float[]
+           {
+                cols[0].x, cols[0].y, cols[0].z, cols[0].w,
+                cols[1].x, cols[1].y, cols[1].z, cols[1].w,
+                cols[2].x, cols[2].y, cols[2].z, cols[2].w,
+                cols[3].x, cols[3].y, cols[3].z, cols[3].w,
+
+           };
         }
 
         /// <summary>
@@ -179,7 +185,7 @@ namespace GlmNet
         #endregion
 
         #region ToString support
-            
+
         public override string ToString()
         {
             return String.Format(

@@ -110,7 +110,12 @@ namespace GlmNet
         /// <returns></returns>
         public float[] to_array()
         {
-            return cols.SelectMany(v => v.to_array()).ToArray();
+            return new float[]
+            {
+                cols[0].x, cols[0].y, cols[0].z,
+                cols[1].x, cols[1].y, cols[1].z,
+                cols[2].x, cols[2].y, cols[2].z
+            };
         }
 
         /// <summary>

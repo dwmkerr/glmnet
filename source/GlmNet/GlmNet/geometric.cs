@@ -20,20 +20,17 @@ namespace GlmNet
 
         public static float dot(vec2 x, vec2 y)
         {
-            vec2 tmp = new vec2(x * y);
-            return tmp.x + tmp.y;
+            return x.x * y.x + x.y * y.y;
         }
 
         public static float dot(vec3 x, vec3 y)
         {
-            vec3 tmp = new vec3(x * y);
-            return tmp.x + tmp.y + tmp.z;
+            return x.x * y.x + x.y * y.y + x.z * y.z;
         }
 
         public static float dot(vec4 x, vec4 y)
         {
-            vec4 tmp = new vec4(x * y);
-            return (tmp.x + tmp.y) + (tmp.z + tmp.w);
+            return x.x * y.x + x.y * y.y + x.z * y.z + x.w * y.w;
         }
 
         public static vec2 normalize(vec2 v)

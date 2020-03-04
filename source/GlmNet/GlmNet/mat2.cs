@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 
 namespace GlmNet
 {
@@ -115,7 +114,11 @@ namespace GlmNet
         /// <returns></returns>
         public float[] to_array()
         {
-            return cols.SelectMany(v => v.to_array()).ToArray();
+            return new float[] 
+            {
+                cols[0].x, cols[0].y,
+                cols[1].x, cols[1].y
+            };
         }
 
         #endregion
