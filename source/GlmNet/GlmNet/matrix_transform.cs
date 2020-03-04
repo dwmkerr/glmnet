@@ -196,13 +196,13 @@ namespace GlmNet
                 return Result; // Error
 
             vec3 Temp = new vec3(
-                ((viewport[2]) - (2f) * (center.x - (viewport[0]))) / delta.x,
-                ((viewport[3]) - (2f) * (center.y - (viewport[1]))) / delta.y,
+                ((viewport.z) - (2f) * (center.x - (viewport.x))) / delta.x,
+                ((viewport.w) - (2f) * (center.y - (viewport.y))) / delta.y,
                 (0f));
 
             // Translate and scale the picked region to the entire window
             Result = translate(Result, Temp);
-            return scale(Result, new vec3((viewport[2]) / delta.x, (viewport[3]) / delta.y, (1)));
+            return scale(Result, new vec3((viewport.z) / delta.x, (viewport.w) / delta.y, (1)));
         }
 
         /// <summary>
@@ -214,7 +214,6 @@ namespace GlmNet
         /// <param name="viewport">The viewport.</param>
         /// <returns></returns>
         public static vec3 project(vec3 obj, mat4 model, mat4 proj, vec4 viewport)
-
         {
             vec4 tmp = new vec4(obj, (1f));
             tmp = model * tmp;
@@ -222,10 +221,11 @@ namespace GlmNet
 
             tmp /= tmp.w;
             tmp = tmp * 0.5f + 0.5f;
-            tmp[0] = tmp[0] * viewport[2] + viewport[0];
-            tmp[1] = tmp[1] * viewport[3] + viewport[1];
+            obj.x = tmp.x * viewport.z + viewport.x;
+            obj.y = tmp.y * viewport.w + viewport.y;
+            obj.z = tmp.z;
 
-            return new vec3(tmp.x, tmp.y, tmp.z);
+            return obj;
         }
 
         /// <summary>
@@ -281,9 +281,9 @@ namespace GlmNet
         public static mat4 scale(mat4 m, vec3 v)
         {
             mat4 result = m;
-            result[0] = m[0] * v[0];
-            result[1] = m[1] * v[1];
-            result[2] = m[2] * v[2];
+            result[0] = m[0] * v.x;
+            result[1] = m[1] * v.y;
+            result[2] = m[2] * v.z;
             result[3] = m[3];
             return result;
         }
@@ -297,7 +297,7 @@ namespace GlmNet
         public static mat4 translate(mat4 m, vec3 v)
         {
             mat4 result = m;
-            result[3] = m[0] * v[0] + m[1] * v[1] + m[2] * v[2] + m[3];
+            result[3] = m[0] * v.x + m[1] * v.y + m[2] * v.z + m[3];
             return result;
         }
 
@@ -339,8 +339,8 @@ namespace GlmNet
             mat4 Inverse = glm.inverse(proj * model);
 
             vec4 tmp = new vec4(win, (1f));
-            tmp.x = (tmp.x - (viewport[0])) / (viewport[2]);
-            tmp.y = (tmp.y - (viewport[1])) / (viewport[3]);
+            tmp.x = (tmp.x - (viewport.x)) / (viewport.z);
+            tmp.y = (tmp.y - (viewport.y)) / (viewport.w);
             tmp = tmp * (2f) - (1f);
 
             vec4 obj = Inverse * tmp;
