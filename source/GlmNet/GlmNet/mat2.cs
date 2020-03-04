@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 
 namespace GlmNet
 {
@@ -115,7 +114,11 @@ namespace GlmNet
         /// <returns></returns>
         public float[] to_array()
         {
-            return cols.SelectMany(v => v.to_array()).ToArray();
+            return new float[] 
+            {
+                cols[0].x, cols[0].y,
+                cols[1].x, cols[1].y
+            };
         }
 
         #endregion
@@ -131,8 +134,8 @@ namespace GlmNet
         public static vec2 operator *(mat2 lhs, vec2 rhs)
         {
             return new vec2(
-                lhs[0, 0] * rhs[0] + lhs[1, 0] * rhs[1],
-                lhs[0, 1] * rhs[0] + lhs[1, 1] * rhs[1]
+                lhs[0, 0] * rhs.x + lhs[1, 0] * rhs.y,
+                lhs[0, 1] * rhs.x + lhs[1, 1] * rhs.y
             );
         }
 
@@ -146,8 +149,8 @@ namespace GlmNet
         {
             return new mat2(new[]
             {
-          lhs[0][0] * rhs[0] + lhs[1][0] * rhs[1],
-          lhs[0][1] * rhs[0] + lhs[1][1] * rhs[1]
+                lhs[0][0] * rhs[0] + lhs[1][0] * rhs[1],
+                lhs[0][1] * rhs[0] + lhs[1][1] * rhs[1]
             });
         }
 

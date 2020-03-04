@@ -110,7 +110,12 @@ namespace GlmNet
         /// <returns></returns>
         public float[] to_array()
         {
-            return cols.SelectMany(v => v.to_array()).ToArray();
+            return new float[]
+            {
+                cols[0].x, cols[0].y, cols[0].z,
+                cols[1].x, cols[1].y, cols[1].z,
+                cols[2].x, cols[2].y, cols[2].z
+            };
         }
 
         /// <summary>
@@ -137,9 +142,9 @@ namespace GlmNet
         public static vec3 operator *(mat3 lhs, vec3 rhs)
         {
             return new vec3(
-                lhs[0, 0] * rhs[0] + lhs[1, 0] * rhs[1] + lhs[2, 0] * rhs[2],
-                lhs[0, 1] * rhs[0] + lhs[1, 1] * rhs[1] + lhs[2, 1] * rhs[2],
-                lhs[0, 2] * rhs[0] + lhs[1, 2] * rhs[1] + lhs[2, 2] * rhs[2]
+                lhs[0, 0] * rhs.x + lhs[1, 0] * rhs.y + lhs[2, 0] * rhs.z,
+                lhs[0, 1] * rhs.x + lhs[1, 1] * rhs.y + lhs[2, 1] * rhs.z,
+                lhs[0, 2] * rhs.x + lhs[1, 2] * rhs.y + lhs[2, 2] * rhs.z
             );
         }
 
@@ -153,9 +158,9 @@ namespace GlmNet
         {
             return new mat3(new[]
             {
-          lhs[0][0] * rhs[0] + lhs[1][0] * rhs[1] + lhs[2][0] * rhs[2],
-          lhs[0][1] * rhs[0] + lhs[1][1] * rhs[1] + lhs[2][1] * rhs[2],
-          lhs[0][2] * rhs[0] + lhs[1][2] * rhs[1] + lhs[2][2] * rhs[2]
+                lhs[0][0] * rhs[0] + lhs[1][0] * rhs[1] + lhs[2][0] * rhs[2],
+                lhs[0][1] * rhs[0] + lhs[1][1] * rhs[1] + lhs[2][1] * rhs[2],
+                lhs[0][2] * rhs[0] + lhs[1][2] * rhs[1] + lhs[2][2] * rhs[2]
             });
         }
 
